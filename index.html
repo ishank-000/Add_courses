@@ -70,7 +70,7 @@
     <main>
             <div class="container mt-5 " >
         <div class="input-group mb-3">
-            <input id="newchap" type="text" class="form-control" placeholder="Enter chapter " aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input id="newchap" type="text" class="form-control" placeholder="Enter chapter" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button id="add_btn" class="btn btn-outline-success" type="button" id="button-addon2">Add</button>
           </div>
           <ul id="parentlist" class="list-group">
@@ -98,12 +98,14 @@
             let newLi= document.createElement('Li')
             newLi.classList.add('list-group-item')
             let newchapter=document.getElementById('newchap').value
+            if(newchapter.length >0){
             newLi.className="list-group-item d-flex justify-content-between"
             newLi.innerHTML=`<h3 class="flex-grow-1">${newchapter}</h3>
                 <button class="btn btn-warning mx-3" onclick="editChapter(this)">Edit</button>
                 <button class="btn btn-danger" onclick="removeChapter(this)">Remove</button></li>`
 
-            parentList.appendChild(newLi)
+            parentList.appendChild(newLi)}
+            currentbtn.previousElementSibling.value=""
         }
 
             function removeChapter(currenElement){
